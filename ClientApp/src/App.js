@@ -7,6 +7,7 @@ import HomePage from './pages/homepage/homepage.component';
 import ConcertPage from './pages/concert-list/concert-list.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
 import ArtistPage from './pages/artistpage/artistpage.component';
+import SubmitEventPage from './pages/submit-event-page/FormEvent.js';
 import Header from './components/header/header.component.jsx';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -53,6 +54,7 @@ class App extends React.Component{
           <Route path='/concert-list' component={ConcertPage}/>
           <Route path='/signin' component={SignInAndSignUpPage}/>
           <Route path='/profile' component={ArtistPage} />
+          <Route path='/submit-event' component={SubmitEventPage} />
         </Switch>
       </div>
     );

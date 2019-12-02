@@ -2,8 +2,6 @@ import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-// import FacebookLogin from 'react-facebook-login';
-// import GoogleLogin from 'react-google-login';
 
 import { auth, signInWithGoogle, signInWithFacebook } from '../../firebase/firebase.utils';
 
