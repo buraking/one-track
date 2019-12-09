@@ -1,34 +1,22 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+/*import MomentUtils from "@date-io/moment";
+import DatePicker from '@material-ui/pickers/DatePicker/DatePicker'
+import MuiPickersUtilsProvider from "@material-ui-pickers/MuiPickersUtilsProvider";
+import moment from "moment";
+import "moment/locale/dk";
+import React from "react";
+moment.locale("dk");
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200,
-  },
-}));
-
-export default function DateAndTimePickers() {
-  const classes = useStyles();
-
+export function CustomDatePicker(props) {
+  const { dato, handleDateChange, ...rest } = props;
   return (
-    <form className={classes.container} noValidate>
-      <TextField
-        id="datetime-local"
-        label="Next appointment"
-        type="datetime-local"
-        defaultValue="2017-05-24T10:30"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
+    <MuiPickersUtilsProvider utils={MomentUtils} moment={moment} locale="es">
+      <DatePicker
+        value={dato}
+        onChange={handleDateChange}
+        {...rest}
       />
-    </form>
+    </MuiPickersUtilsProvider>
   );
 }
+
+export default CustomDatePicker;*/

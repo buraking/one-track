@@ -78,19 +78,25 @@ export default function ScrollableTabsButtonForce() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Item One
+        +4523935530250 <br/>
+        Rådhuspladsen 5, 2300 st th. <br/>
+        email@email.com
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br/> sed do eiusmod tempor incididunt ut labore et dolore <br/>magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <br/> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure <br/> dolor in reprehenderit in voluptate velit esse cillum <br/> dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non <br/>proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br/> sed do eiusmod tempor incididunt ut labore et dolore <br/>magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <br/> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure <br/> dolor in reprehenderit in voluptate velit esse cillum <br/> dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non <br/>proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        SPOTIFY <br/>
+        FACEBOOK <br/>
+        SOUNDCLOUD
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
+        SPOTIFY <br/>
+        FACEBOOK <br/>
+        SOUNDCLOUD
       </TabPanel>
     </div>
   );

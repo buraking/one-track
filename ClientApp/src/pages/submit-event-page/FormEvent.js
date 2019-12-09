@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 
 import MandatoryForm from './MandatoryForm';
 import OptionalForm from './OptionalForm';
@@ -6,10 +6,11 @@ import Confirm from './Confirm';
 import Success from './Success';
 
 export class UserForm extends Component {
-    state = {
+    state = {        
         step: 1,
         spilleSted: '',
         dato: '',
+        pris: '',
         playTime: '',
         kapacitet: '',
         Genre: '',
@@ -41,10 +42,12 @@ export class UserForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { spilleSted, dato, playTime, kapacitet, genre, pris, backstageArea, 
+        /*const { spilleSted, dato, playTime, kapacitet, genre, pris, backstageArea, 
             catering, guestList, security, eventliability  } = this.state;
         const values = { spilleSted, dato, playTime, kapacitet, genre, pris, backstageArea, 
             catering, guestList, security, eventliability }
+        const {spilleSted, dato, pris} = this.state;
+        const values = {spilleSted, dato, pris}
         switch(step){
             case 1:
                 return (
@@ -82,4 +85,4 @@ export class UserForm extends Component {
     }
 }
 
-export default UserForm;
+export default UserForm;*/

@@ -1,32 +1,32 @@
 const SHOP_DATA = [
     {
         id: 1,
-        title: 'Hats',
-        routeName: 'hats',
+        title: 'Canada',
+        routeName: 'canada',
         items: [
           {
             id: 1,
-            name: 'Brown Brim',
-            imageUrl: 'C:/Users/Søren/Documents/music-connect/one-track/src/assets/drumguy.jpg',
-            price: 25
+            name: 'Vancouver',
+            imageUrl: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80',
+            price: 500
           },
           {
             id: 2,
-            name: 'Blue Beanie',
-            imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
+            name: 'Whistler',
+            imageUrl: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
             price: 18
           },
           {
             id: 3,
-            name: 'Brown Cowboy',
-            imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
+            name: 'Quebec',
+            imageUrl: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
             price: 35
           },
           {
             id: 4,
-            name: 'Grey Brim',
-            imageUrl: 'https://i.ibb.co/RjBLWxB/grey-brim.png',
-            price: 25
+            name: 'Gallagher Park',
+            imageUrl: 'https://images.unsplash.com/photo-1468359601543-843bfaef291a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80',
+            price: 300
           },
           {
             id: 5,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class Success extends Component {
@@ -27,4 +27,4 @@ export class Success extends Component {
     }
 }
 
-export default Success;
+export default Success;*/

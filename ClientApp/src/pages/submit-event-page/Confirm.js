@@ -1,17 +1,33 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {List, ListItem} from 'material-ui/List'
 import RaisedButton from 'material-ui/RaisedButton'
+import axios from 'axios';
 
 export class Confirm extends Component {
 
     continue = e => {
         e.preventDefault();
-        //Process the form - backend submit call
 
         this.props.nextStep();
     }
 
+    handleSubmit = async e => {
+        e.preventDefault();
+    
+        axios.post('/event', {
+            spilleSted: 'TEST',
+            Dato: '17-10-1993',
+            Pris: '1000'
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+        });
+    };
+    
     back = e => {
         e.preventDefault();
         this.props.prevStep();
@@ -76,6 +92,7 @@ export class Confirm extends Component {
                         label="Confirm & Continue"
                         primary={true}
                         //style={styles.button}
+                        onClick={this.handleSubmit}
                         onClick={this.continue}
                     />
                     <RaisedButton 
@@ -90,4 +107,4 @@ export class Confirm extends Component {
     }
 }
 
-export default Confirm;
+export default Confirm;*/

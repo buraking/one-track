@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -8,35 +9,30 @@ import ConcertPage from './pages/concert-list/concert-list.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
 import ArtistPage from './pages/artistpage/artistpage.component';
 import SubmitEventPage from './pages/submit-event-page/FormEvent.js';
+import FormEvent from './pages/EventTest/MandatoryForm.jsx'
 import Header from './components/header/header.component.jsx';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { setCurrentUser } from './redux/user/user.actions';
 
+class App extends React.Component {
+  unsubscribeFromAuth = null;
 
-class App extends React.Component{
-  constructor() {
-    super();
+  componentDidMount() {
+    const { setCurrentUser } = this.props;
 
-    this.state = {
-      currentUser: null
-    };
-  }
-  
-  componentDidMount(){
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot =>{
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
             ...snapShot.data()
-            }
           });
         });
       }
       else {
-        this.setState({ currentUser: userAuth });
+        setCurrentUser(userAuth);
       }
     });
   }
@@ -48,16 +44,44 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUser} />
+        <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/concert-list' component={ConcertPage}/>
-          <Route path='/signin' component={SignInAndSignUpPage}/>
+          <Route 
+            exact 
+            path='/signin' 
+            render={() => 
+              this.props.currentUser ? (
+                <Redirect to='/'/>
+              ) : (
+                <SignInAndSignUpPage />)
+            }
+            />
           <Route path='/profile' component={ArtistPage} />
-          <Route path='/submit-event' component={SubmitEventPage} />
+          <Route path='/form-event' component={FormEvent} />
         </Switch>
       </div>
+
     );
   }
 }
-export default App;
+
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+/*const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default connect(
+  null,//mapStateToProps,
+  mapDispatchToProps
+)(App);*/
