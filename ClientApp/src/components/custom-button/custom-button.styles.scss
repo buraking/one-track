@@ -42,5 +42,15 @@
       border: 1px solid darkblue;
     }
   }
+    &.secondary-button {
+      background-color: lightgrey;
+      color: black;
+
+    &:hover {
+      background-color: darkgray;
+      color: black;
+      border: 1px solid black;
+    }
+  }
 }
   

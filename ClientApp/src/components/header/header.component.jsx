@@ -17,18 +17,18 @@ const Header = ({ currentUser }) => (
         <div className='options'>
             {
                 currentUser ?
-                <Link className='option' to='/form-event'>OPRET NYT EVENT</Link>
+                <Link className='option' to='/form-event'>ADD NEW EVENT</Link>
                 :
                 <Link className='option' to='/signin'></Link>
             }
             {
                 currentUser ?
-                <Link className='option' to='/Profile'>PROFIL</Link>
+                <Link className='option' to='/Profile'>PROFILE</Link>
                 :
                 <Link className='option' to='/signin'></Link>
             }
             <Link className='option' to='/concert-list'>
-                KONCERTER
+                CONCERTS
             </Link>
             {currentUser ? (
                 <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>

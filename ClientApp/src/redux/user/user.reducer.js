@@ -2,7 +2,8 @@ import { UserActionTypes } from './user.types';
 import { Map } from 'immutable';
 
 const INITIAL_STATE = {
-  Map
+  Map,
+  loading: false
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -10,7 +11,13 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case UserActionTypes.SET_CURRENT_USER:
       return {
         ...state,
-        currentUser: action.payload
+        currentUser: action.payload,
+        loading: false
+      };
+    case UserActionTypes.LOADING_USER:
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;

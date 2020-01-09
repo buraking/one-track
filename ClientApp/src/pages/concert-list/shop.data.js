@@ -1,30 +1,30 @@
 const SHOP_DATA = [
     {
         id: 1,
-        title: 'Canada',
-        routeName: 'canada',
+        title: 'Richter',
+        routeName: 'richter',
         items: [
           {
             id: 1,
-            name: 'Vancouver',
+            name: 'Doula',
             imageUrl: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80',
             price: 500
           },
           {
             id: 2,
-            name: 'Whistler',
+            name: 'Vanir',
             imageUrl: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
             price: 18
           },
           {
             id: 3,
-            name: 'Quebec',
+            name: 'Tessa',
             imageUrl: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
             price: 35
           },
           {
             id: 4,
-            name: 'Gallagher Park',
+            name: 'Brockhampton',
             imageUrl: 'https://images.unsplash.com/photo-1468359601543-843bfaef291a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80',
             price: 300
           },
@@ -62,8 +62,8 @@ const SHOP_DATA = [
       },
       {
         id: 2,
-        title: 'Sneakers',
-        routeName: 'sneakers',
+        title: 'Urban-13',
+        routeName: 'Urban-13',
         items: [
           {
             id: 1,

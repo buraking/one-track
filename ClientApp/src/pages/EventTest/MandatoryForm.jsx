@@ -1,6 +1,7 @@
 import React from 'react'
 import FormInput from '../../components/form-input/form-input.component.jsx';
 import CustomButton from '../../components/custom-button/custom-button.component.jsx';
+import {Redirect} from 'react-router-dom';
 import './MandatoryForm.styles.scss';
 import axios from 'axios';
 import uuid from 'react-uuid';
@@ -12,32 +13,47 @@ export class MandatoryForm extends React.Component {
         this.state = {
             userId: uuid(),
             eventId: uuid(),
-            spilleSted: '',
-            dato: '',
-            pris: '',
+            venue: '',
+            date: '',
+            price: '',
             startDate: new Date(),
         };
     }
     
+    nextStep = () => { 
+        const { step } = this.state;
+        this.setState({
+            step: step + 1
+        });
+    }
+
+    prevStep = () => { 
+        const { step } = this.state;
+        this.setState({
+            step: step - 1
+        });
+    }
+
     handleSubmit = async event => {
         event.preventDefault();
 
-        const { userId, eventId, spilleSted, dato, pris } = this.state;
+        const { userId, eventId, venue, date, price } = this.state;
 
         return axios.post('http://172.17.26.204:80/OneTrack.RESTAPI/api/event/', {
             UserId: userId,
             EventId: eventId,
-            EventName: spilleSted,
-            Date: dato,
-            Price: pris
+            EventName: venue,
+            Date: date,
+            Price: price
           })
           .then(res => {
             console.log("Result Data: ", res.data);
-            console.log(userId, eventId, spilleSted, dato, pris);
+            console.log(userId, eventId, venue, date, price);
             if (res.status === 200)
             {
               this.props.onClick(res.data);
             }
+            this.props.history.push('/concert-list/');
           })
           .catch(err => console.log(err));
     };
@@ -48,34 +64,37 @@ export class MandatoryForm extends React.Component {
         this.setState({ [name]: value });
     }   
     render() {
-        const { spilleSted, dato, pris} = this.state;
+        const { venue, date, price} = this.state;
         return (
             <div className='mandatory-form'>
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
                         type='text'
-                        name='spilleSted'
-                        label='Spillested'
+                        name='venue'
+                        label='Venue'
                         onChange={this.handleChange}
-                        value={spilleSted}
+                        value={venue}
                     />
                     <FormInput
                         type="date"
-                        name='dato'
+                        name='date'
                         onChange={this.handleChange}
-                        value={dato}
+                        value={date}
                     />
                     <FormInput 
                         type='text'
-                        name='pris'
-                        label='Indtast pris'
+                        name='price'
+                        label='Price'
                         onChange={this.handleChange}
-                        value={pris}
+                        value={price}
                     />
-                    <CustomButton 
-                        type='submit' 
-                        label='Submit'
-                    >SUBMIT</CustomButton>
+                    <div className='buttons'>
+                        <CustomButton 
+                            type='submit' 
+                            label='Submit'
+                        >SUBMIT{' '}</CustomButton>
+                        <CustomButton onClick={this.prevStep} secondaryButton>Back</CustomButton>
+                    </div>
                 </form>
             </div>
         )
