@@ -11,11 +11,11 @@ export class MandatoryForm extends React.Component {
         super();
     
         this.state = {
-            userId: uuid(),
-            eventId: uuid(),
-            venue: '',
+            userId: '2',
+            eventName: '',
             date: '',
             price: '',
+            genre: '',
             startDate: new Date(),
         };
     }
@@ -37,18 +37,18 @@ export class MandatoryForm extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
 
-        const { userId, eventId, venue, date, price } = this.state;
+        const { userId, eventName, date, price, genre } = this.state;
 
-        return axios.post('http://172.17.26.204:80/OneTrack.RESTAPI/api/event/', {
+        return axios.post('http://192.168.43.64:80/OneTrack.RESTAPI/api/event/', {
             UserId: userId,
-            EventId: eventId,
-            EventName: venue,
+            EventName: eventName,
             Date: date,
-            Price: price
+            Price: price,
+            Genre: genre
           })
           .then(res => {
             console.log("Result Data: ", res.data);
-            console.log(userId, eventId, venue, date, price);
+            console.log(userId, eventName, date, price);
             if (res.status === 200)
             {
               this.props.onClick(res.data);
@@ -64,16 +64,16 @@ export class MandatoryForm extends React.Component {
         this.setState({ [name]: value });
     }   
     render() {
-        const { venue, date, price} = this.state;
+        const { eventName, date, price, genre} = this.state;
         return (
             <div className='mandatory-form'>
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
                         type='text'
-                        name='venue'
-                        label='Venue'
+                        name='eventName'
+                        label='Event Name'
                         onChange={this.handleChange}
-                        value={venue}
+                        value={eventName}
                     />
                     <FormInput
                         type="date"
@@ -87,6 +87,13 @@ export class MandatoryForm extends React.Component {
                         label='Price'
                         onChange={this.handleChange}
                         value={price}
+                    />
+                    <FormInput 
+                        type='text'
+                        name='genre'
+                        label='Genre'
+                        onChange={this.handleChange}
+                        value={genre}
                     />
                     <div className='buttons'>
                         <CustomButton 
